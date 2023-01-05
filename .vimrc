@@ -185,8 +185,8 @@ nmap ,tl :call Tl()<cr>
 endif
 
 "======== cscope setting ========
-"set csprg=/usr/bin/cscope
-set csprg=/opt/local/bin/cscope
+set csprg=/usr/bin/cscope
+"set csprg=/opt/local/bin/cscope
 set csto=0
 set cst
 

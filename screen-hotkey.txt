@@ -7,6 +7,7 @@ If you want to run shell, It needs to add 'shell=$SHELL' to .screenrc file.
 screen [-U] -S session-name   : create session with UTF-8
 screen -r (session-name)      : resume session 
 screen -d (session-name)      : detach session                            
+screen -list                  : display sessions
 
 ==Screen hot key list========================================================================
 (Ctrl + a) => c           : new window
