@@ -1,3 +1,3 @@
 #!/bin/bash
 
-grep -rn -i --color --exclude=tags --exclude=cscope.out "$1" *
+grep -rn -i --color=always --exclude=tags --exclude=cscope.out "$1" * | less -R
