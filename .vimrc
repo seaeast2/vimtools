@@ -61,11 +61,14 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 
+"sytastic is deprecated. and replaced with ale
+"Plugin 'scrooloose/syntastic'
+
 
 " vim-scripts repos
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-surround'
-Plugin 'scrooloose/syntastic'
+Plugin 'dense-analysis/ale'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'valloric/youcompleteme'
 Plugin 'majutsushi/tagbar'
