@@ -8,7 +8,6 @@ screen [-U] -S session-name   : create session with UTF-8
 screen -r (session-name)      : resume session 
 screen -d (session-name)      : detach session                            
 screen -list                  : display sessions
-
 ==Screen hot key list========================================================================
 (Ctrl + a) => c           : new window
 (Ctrl + a) => n           : next window
@@ -23,7 +22,7 @@ screen -list                  : display sessions
 (Ctrl + a) => : => remove : remove region
 (Ctrl + a) => X           : remove region (same with upper command)
 (Ctrl + a) => tab         : Move to next region
-(Ctrl + a) => d           : detach screen from terminal
+(Ctrl + a) => d           : detach screen from terminal <= important!!
 (Ctrl + a) => A           : set window title 
 (Ctrl + a) => x           : lock session 
                             Enter user password to unlock

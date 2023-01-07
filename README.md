@@ -1,7 +1,7 @@
 vimtools installation guide
 
 1. sudo apt get install vim vim-youcompleteme
-(Install vim-youcompleteme only on raspberry pi)
+(Install vim-youcompleteme if you want to run on raspberry pi)
 
 2. mkdir ~/Works
 cd Works
