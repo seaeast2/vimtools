@@ -71,6 +71,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'dense-analysis/ale'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'valloric/youcompleteme'
+Plugin 'craigemery/vim-autotag'
 Plugin 'majutsushi/tagbar'
 Plugin 'ctrlpvim/ctrlp.vim'
 
