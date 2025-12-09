@@ -9,13 +9,14 @@ set ruler
 set number
 set modifiable
 set hlsearch
-set ts=2
-set sw=2
-set sts=2
+set ts=4
+set sw=4
+set sts=4
 set mouse=c
 set expandtab
 set encoding=utf-8
-set fileencodings=euc-kr,utf-8
+set fileencodings=utf-8,euc-kr
+"set fileencodings=utf-8
 
 syntax enable
 "set background=dark
@@ -71,6 +72,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'dense-analysis/ale'
 Plugin 'scrooloose/nerdcommenter'
 " Plugin 'valloric/youcompleteme'
+Plugin 'github/copilot.vim'
 Plugin 'craigemery/vim-autotag'
 Plugin 'majutsushi/tagbar'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -187,105 +189,6 @@ endfunc
 nmap ,tl :call Tl()<cr>
 
 endif
-
-"======== cscope setting ========
-set csprg=/usr/bin/cscope
-"set csprg=/opt/local/bin/cscope
-set csto=0
-set cst
-
-func! Csw()
-	exe "cs show"
-endfunc
-nmap ,csw :call Csw()<cr>
-
-func! Csc()
-	let csc = expand("<cword>")
-	new
-	exe "cs find c ".csc
-	if getline(1) == " "
-		exe "q!"
-	endif
-endfunc
-nmap ,csc :call Csc()<cr>
-
-func! Csd()
-	let csd = expand("<cword>")
-	new
-	exe "cs find d ".csd
-	if getline(1) == " "
-		exe "q!"
-	endif
-endfunc
-nmap ,csd :call Csd()<cr>
-
-func! Cse()
-	let cse = expand("<cword>")
-	new
-	exe "cs find e ".cse
-	if getline(1) == " "
-		exe "q!"
-	endif
-endfunc
-nmap ,cse :call Cse()<cr>
-
-func! Csf()
-	let csf = expand("<cword>")
-	new
-	exe "cs find f ".csf
-	if getline(1) == " "
-		exe "q!"
-	endif
-endfunc
-nmap ,csf :call Csf()<cr>
-
-func! Csg()
-	let csg = expand("<cword>")
-	new
-	exe "cs find g ".csg
-	if getline(1) == " "
-		exe "q!"
-	endif
-endfunc
-nmap ,csg :call Csg()<cr>
-
-func! Csi()
-	let csi = expand("<cword>")
-	new
-	exe "cs find i ".csi
-	if getline(1) == " "
-		exe "q!"
-	endif
-endfunc
-nmap ,csi :call Csi()<cr>
-
-func! Css()
-	let css = expand("<cword>")
-	new
-	exe "cs find s ".css
-	if getline(1) == " "
-		exe "q!"
-	endif
-endfunc
-nmap ,css :call Css()<cr>
-
-func! Cst()
-	let cst = expand("<cword>")
-	new
-	exe "cs find t ".cst
-	if getline(1) == " "
-		exe "q!"
-	endif
-endfunc
-nmap ,cst :call Cst()<cr>
-
-
-if filereadable("cscope.out")
-	set nocsverb
-	cs add cscope.out
-	set csverb
-endif
-
 
 
 "============ man page setting =============
