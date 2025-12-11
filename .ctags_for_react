@@ -1,0 +1,36 @@
+--languages=+JavaScript,+TypeScript,+Css,+Html
+--exclude=node_modules
+--exclude=dist
+--exclude=build
+--exclude=.next
+--exclude=.git
+
+# 파일 확장자
+--langmap=JavaScript:+.js.jsx
+--langmap=TypeScript:+.ts.tsx
+
+########################################################
+# JavaScript / TypeScript 기본 태그
+########################################################
+
+# function foo() {}
+--regex-JavaScript=/^[ \t]*function[ \t]+([A-Za-z0-9_]+)/\1/f,function/
+--regex-TypeScript=/^[ \t]*function[ \t]+([A-Za-z0-9_]+)/\1/f,function/
+
+# const foo = function() {}
+--regex-JavaScript=/^[ \t]*const[ \t]+([A-Za-z0-9_]+)[ \t]*=[ \t]*function/\1/f,function/
+--regex-TypeScript=/^[ \t]*const[ \t]+([A-Za-z0-9_]+)[ \t]*=[ \t]*function/\1/f,function/
+
+# const foo = () => {}
+--regex-JavaScript=/^[ \t]*const[ \t]+([A-Za-z0-9_]+)[ \t]*=[ \t]*\([^\)]*\)[ \t]*=>/\1/f,function/
+--regex-JavaScript=/^[ \t]*const[ \t]+([A-Za-z0-9_]+)[ \t]*=[ \t]*[A-Za-z0-9_]+[ \t]*=>/\1/f,function/
+--regex-TypeScript=/^[ \t]*const[ \t]+([A-Za-z0-9_]+)[ \t]*=[ \t]*\([^\)]*\)[ \t]*=>/\1/f,function/
+--regex-TypeScript=/^[ \t]*const[ \t]+([A-Za-z0-9_]+)[ \t]*=[ \t]*[A-Za-z0-9_]+[ \t]*=>/\1/f,function/
+
+########################################################
+# React Component 인식 (JSX/TSX)
+########################################################
+
+# function MyComponent() { return (...) }
+--regex-J
+

@@ -1,0 +1,59 @@
+--langmap=python:.py
+--languages=+python
+
+# Tag kinds for Python:
+# c = classes, f = functions, m = class methods, v = variables, i = imports
+--python-kinds=+cfmiv
+
+# ---------------------------
+# Basic Python language regex
+# ---------------------------
+
+# class MyClass:
+--regex-python=/^[ \t]*class[ \t]+([A-Za-z_][A-Za-z0-9_]*)/\1/c,class/
+
+# def my_function():
+--regex-python=/^[ \t]*def[ \t]+([A-Za-z_][A-Za-z0-9_]*)/\1/f,function/
+
+# class method or instance method (indentation + def)
+--regex-python=/^[ \t]+def[ \t]+([A-Za-z_][A-Za-z0-9_]*)/\1/m,method/
+
+# import statements
+--regex-python=/^[ \t]*import[ \t]+([A-Za-z0-9_\.]+)/\1/i,import/
+--regex-python=/^[ \t]*from[ \t]+([A-Za-z0-9_\.]+)[ \t]+import/\1/i,import/
+
+# variables (simple assignment)
+--regex-python=/^[ \t]*([A-Za-z_][A-Za-z0-9_]*)[ \t]*=/\1/v,variable/
+
+# ---------------------------
+# PyTorch-specific detection
+# ---------------------------
+
+# nn.Module subclasses (models)
+--regex-python=/^[ \t]*class[ \t]+([A-Za-z_][A-Za-z0-9_]*)\([ \t]*nn\.Module[ \t]*\)/\1/M,model/
+
+# forward() function
+--regex-python=/^[ \t]*def[ \t]+forward[ \t]*\(/\0/F,forward/
+
+# __init__ inside nn.Module (common pattern in models)
+--regex-python=/^[ \t]*def[ \t]+__init__[ \t]*\(/\0/I,init/
+
+# layers defined inside __init__: self.layer = nn.Conv2d(...)
+--regex-python=/^[ \t]*self\.([A-Za-z_][A-Za-z0-9_]*)[ \t]*=[ \t]*nn\.[A-Za-z0-9_]+/\1/L,layer/
+
+# Optimizer definitions
+--regex-python=/^[ \t]*([A-Za-z_][A-Za-z0-9_]*)[ \t]*=[ \t]*torch\.optim\./\1/O,optimizer/
+
+# Loss functions
+--regex-python=/^[ \t]*([A-Za-z_][A-Za-z0-9_]*)[ \t]*=[ \t]*nn\.[A-Za-z0-9_]+Loss/\1/S,loss/
+
+# Training loop functions: train(), validate(), test()
+--regex-python=/^[ \t]*def[ \t]+train[ \t]*\(/\0/T,train/
+--regex-python=/^[ \t]*def[ \t]+validate[ \t]*\(/\0/V,validate/
+--regex-python=/^[ \t]*def[ \t]+test[ \t]*\(/\0/E,test/
+
+# Extra details
+--fields=+l
+--extras=+q
+--sort=yes
+

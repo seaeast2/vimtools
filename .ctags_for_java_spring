@@ -1,0 +1,29 @@
+--langmap=java:.java
+
+--languages=+java
+--java-kinds=+cifmpset  # classes, interfaces, fields, methods, packages, enums, types
+
+--regex-java=/^[ \t]*package[ \t]+([A-Za-z0-9_.]+)/\1/p,package/
+--regex-java=/^[ \t]*import[ \t]+([A-Za-z0-9_.]+)/\1/i,import/
+--regex-java=/^[ \t]*class[ \t]+([A-Za-z0-9_]+)/\1/c,class/
+--regex-java=/^[ \t]*interface[ \t]+([A-Za-z0-9_]+)/\1/i,interface/
+--regex-java=/^[ \t]*enum[ \t]+([A-Za-z0-9_]+)/\1/e,enum/
+--regex-java=/^[ \t]*@interface[ \t]+([A-Za-z0-9_]+)/\1/t,annotation/
+--regex-java=/^[ \t]*(public|protected|private)?[ \t]*(static)?[ \t]*[A-Za-z0-9_<>, ?\[\]]+[ \t]+([A-Za-z0-9_]+)[ \t]*\([^)]*\)[ \t]*\{/\3/m,method/
+--regex-java=/^[ \t]*(public|protected|private)?[ \t]*(static)?[ \t]*[A-Za-z0-9_<>, ?\[\]]+[ \t]+([A-Za-z0-9_]+)[ \t]*;/\3/f,field/
+
+# Spring Annotations as tags
+--regex-java=/^[ \t]*@RestController/\0/a,restcontroller/
+--regex-java=/^[ \t]*@Controller/\0/a,controller/
+--regex-java=/^[ \t]*@Service/\0/a,service/
+--regex-java=/^[ \t]*@Repository/\0/a,repository/
+--regex-java=/^[ \t]*@Component/\0/a,component/
+--regex-java=/^[ \t]*@Configuration/\0/a,configuration/
+--regex-java=/^[ \t]*@Bean[ \t]*\([^)]*\)/\0/b,bean/
+--regex-java=/^[ \t]*@Autowired/\0/u,autowired/
+
+# Enable extra detail
+--fields=+l
+--extras=+q
+--sort=yes
+
