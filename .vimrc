@@ -76,6 +76,7 @@ Plugin 'github/copilot.vim'
 Plugin 'craigemery/vim-autotag'
 Plugin 'majutsushi/tagbar'
 Plugin 'ctrlpvim/ctrlp.vim'
+"Plugin 'mustache/vim-mustache-handlebars' "node.js 의 템플릿 frontend 인 handlebars 파일을 인식하고 싶을 때 추가
 
 " All of your Plugins must be added before the following line
 call vundle#end()
